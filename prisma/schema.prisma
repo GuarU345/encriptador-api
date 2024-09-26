@@ -12,3 +12,10 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model EncryptedData {
+  id String @id @default(uuid())
+  encryptedMessage String
+  secret String
+  question String
+}
