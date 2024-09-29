@@ -13,9 +13,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model EncryptedData {
-  id String @id @default(uuid())
-  encryptedMessage String
-  secret String
-  question String
+model User {
+  id       String  @id @default(uuid())
+  name     String
+  email    String  @unique
+  password String
+  Token    Token[]
 }
+
+model Token {
+  id           String   @id @default(uuid())
+  jwtSecretKey String
+  user_id      String
+  user         User     @relation(fields: [user_id], references: [id])
+  date         DateTime @default(now())
+}
+
+model EncryptedData {
+  id               String @id @default(uuid())
+  encryptedMessage String
+  secret           String
+  question         String
+}
+
