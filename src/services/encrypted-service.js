@@ -49,7 +49,6 @@ const getEncryptedMessageById = async(id) => {
 }
 
 const checkSecret = async(encryptedData,secret) => {
-    console.log(encryptedData,secret)
     if(encryptedData.secret.toLowerCase() === secret.toLowerCase()){
         return encryptedData
     }else{
