@@ -1,0 +1,20 @@
+### Este archivo contiene los endpoints iniciales para poder comenzar a usar la api
+
+### para encriptar el mensaje
+POST http://localhost:3000/api/message/encrypt
+Content-Type: application/json
+
+{
+    "message":"un mensaje que se va encriptar",
+    "question":"que es lo que hace esta api",
+    "secret":"Gu4RU"
+}
+
+### para desencriptar el mensaje
+POST http://localhost:3000/api/message/desencrypt
+Content-Type: application/json
+
+{
+    "id":"el id del mensaje",
+    "secret":"el secreto que esta dando la persona para descrifrar el mensaje"
+}
