@@ -18,3 +18,25 @@ Content-Type: application/json
     "id":"el id del mensaje",
     "secret":"el secreto que esta dando la persona para descrifrar el mensaje"
 }
+
+### para iniciar sesion
+
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "name":"el nombre de usuario",
+    "password":"la contraseña"
+}
+
+### para registrar un nuevo usuario
+
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+    "name":"el nombre de usuario",
+    "email":"el correo electronico",
+    "password":"la contraseña"
+    
+}
