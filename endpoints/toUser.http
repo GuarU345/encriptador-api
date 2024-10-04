@@ -5,9 +5,9 @@ POST http://localhost:3000/api/message/encrypt
 Content-Type: application/json
 
 {
-    "message":"un mensaje que se va encriptar",
-    "question":"que es lo que hace esta api",
-    "secret":"Gu4RU"
+    "message":"gael es puto",
+    "question":"definicion de gael",
+    "secret":"secretKey"
 }
 
 ### para desencriptar el mensaje
@@ -40,3 +40,6 @@ Content-Type: application/json
     "password":"la contraseña"
     
 }
+
+### consultar mensajes encriptados
+GET http://localhost:3000/api/message

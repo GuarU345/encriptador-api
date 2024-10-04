@@ -1,6 +1,15 @@
 import { decryptBinary, encryptToBinary } from "../utils.js"
 import {prisma} from '../lib/prisma.js'
 
+const getEncryptedMessages = async() => {
+    try {
+        const encryptedMessages = await prisma.encryptedData.findMany()
+        return encryptedMessages
+    } catch (error) {
+        throw new Error('Error al tratar de consultar los mensajes encriptados')
+    }
+}
+
 const encryptMessage = async(body) =>{
     const {message,secret,question} = body
     
@@ -57,6 +66,7 @@ const checkSecret = async(encryptedData,secret) => {
 }
 
 export const encryptedService = {
+    getEncryptedMessages,
     encryptMessage,
     desencryptMessage
 }
