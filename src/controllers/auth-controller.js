@@ -11,10 +11,10 @@ const login = async (req, res) => {
         const token = jwt.sign({user : userLogin}, process.env.JWT_SECRET, {
             expiresIn: '1h',
         })
-        res.json({message:"Sesión Iniciada",user : userLogin.name, token})
+        res.json({message:"Sesión Iniciada",user : userLogin.name, token,status:true})
 
     } catch (error) {
-        res.json({error:error.message})
+        res.json({error:error.message,status:false})
     }
 
     return token
@@ -25,9 +25,9 @@ const register = async (req, res) => {
 
     try {
         const newUser = await authService.register(body)
-        res.json(newUser)
+        res.json({newUser,status:true})
     } catch (error) {
-        res.json({error:error.message})
+        res.json({error:error.message,status:false})
     }
 }
 
