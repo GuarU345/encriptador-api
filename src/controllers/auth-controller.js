@@ -14,8 +14,6 @@ const login = async (req, res) => {
     } catch (error) {
         res.json({error:error.message,status:false})
     }
-
-    return token
 }
 
 const register = async (req, res) => {
