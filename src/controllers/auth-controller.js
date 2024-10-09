@@ -8,9 +8,7 @@ const login = async (req, res) => {
     try {
         const userLogin = await authService.login(body)
         
-        const token = jwt.sign({user : userLogin}, process.env.JWT_SECRET, {
-            expiresIn: '1h',
-        })
+        const token = jwt.sign({user : userLogin}, process.env.JWT_SECRET)
         res.json({message:"Sesión Iniciada",user : userLogin.name, token,status:true})
 
     } catch (error) {
